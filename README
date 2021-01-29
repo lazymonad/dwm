@@ -52,3 +52,7 @@ Comment=This session starts dwm
 Exec=/usr/local/bin/dwm-start
 Type=XSession
 ```
+
+TODO:
+
+* Dynamic gapps with +/- to increase/decrease gapps
