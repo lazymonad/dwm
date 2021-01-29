@@ -3,6 +3,7 @@ dwm - dynamic window manager
 Lazymonad build: 
 
 **/usr/local/bin/dwm-start**
+
 ```bash
 #!/bin/sh
 
@@ -18,11 +19,6 @@ test -f $sysmodmap       && xmodmap      $sysmodmap
 test -f "$userresources" && xrdb -merge "$userresources"
 test -f "$usermodmap"    && xmodmap     "$usermodmap"
 
-# start some nice programs
-eval $(ssh-agent)
-
-test $(which xsetroot)  && xsetroot -solid midnightblue &
-test $(which gpg-agent) && eval $(gpg-agent --daemon)
 
 # source machine- and uname-specific xinitrcs
 xinitcfg="$HOME/.config/xinit"
@@ -44,6 +40,7 @@ elif [ $(which dwmstatus) ]; then
 elif [ $(which sakura) ]; then
     sakura
 fi
+
 ```
 
 **/usr/share/xsessions/dwm.desktop**
