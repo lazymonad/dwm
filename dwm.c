@@ -267,6 +267,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
+static void resizegapps(const Arg *arg);
 
 /* variables */
 static Systray *systray =  NULL;
@@ -1426,6 +1427,20 @@ resizebarwin(Monitor *m) {
 	if (showsystray && m == systraytomon(m))
 		w -= getsystraywidth();
 	XMoveResizeWindow(dpy, m->barwin, m->wx, m->by, w, bh);
+}
+
+void 
+resizegapps(const Arg *arg) 
+{
+	if (arg->i == 2) {
+		gappx = gappx + 5;
+	} else if (arg->i == 1) {
+		gappx = gappx - 5;
+	} else {
+		gappx = 16;
+	}
+
+  arrange(selmon);
 }
 
 void
